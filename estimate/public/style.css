@@ -1,0 +1,217 @@
+body{
+    width: 100%;
+    font-weight: 550;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(210, 150, 80, 0.1) 0px,
+        rgba(180, 130, 70, 0.2) 10px,
+        rgba(210, 150, 80, 0.1) 20px,
+        rgba(180, 130, 70, 0.2) 30px
+    );
+}
+
+select{
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-weight: 550;
+    border: none;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+    outline: none;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+table td, table th{
+    height: 40px;
+    padding: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+iframe{
+    width: 600px;
+    height: 800px;
+    border: none;
+}
+
+.docomo-app{
+    display: flex;
+}
+
+.estimate{
+    margin: 0px 10px 0px 10px;
+    width: 50%;
+}
+
+.device-edit{
+    display: block;
+}
+
+@media(max-width: 960px){
+    .estimate{
+        width: 100%;
+    }
+
+    .device-edit{
+        display: none;
+        border: none;
+        width: 50%;
+    }
+}
+
+#discount-checkbox{
+    position: relative;
+    top: 2px;
+}
+
+.action-container{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.action-container #customer-name {
+  margin-left: auto; /* 名前を右端に押し出す */
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+#customer-name{
+    text-align: right;
+}
+
+.icon-button {
+  outline: none;   /* フォーカス時の枠線を消す */
+  border: none;    /* ボタンの境界線を消す */
+  background: transparent; /* 背景を透明に（必要に応じて） */
+  padding: 0;      /* パディングも調整できる */
+}
+
+.icon-button:active img {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+  transition: none; /* 押してる間だけ即座に反映 */
+}
+
+.icon-button img{
+    width: 30px;
+    height: 28px;
+}
+
+/* device-container */
+.kaedoki-name,
+.normal-name{
+    background-color: #f2f2f2;
+}
+
+#kaedoki-monthly-price,
+#normal-monthly-price{
+    color: red;
+}
+
+.device-container{
+    display: flex;
+    width: 100%;
+}
+
+#contract-select{
+    width: 100px;
+    height: 40px;
+    margin-left: 5px;
+    border: 1px solid #ddd;
+}
+
+/*discount-container*/
+#discount-container{
+    display: flex;
+    margin-top: 10px;
+}
+
+#discount-price{
+    margin-top: 3px;
+}
+
+/*installments-container*/
+.kaedoki-intallments-table,
+.installments-table{
+    width: 100%;
+}
+
+#checkbox-table{
+    text-align: center;
+}
+
+#kaedoki-price-checkbox,
+#normal-price-checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+.tab-buttons {
+    display: flex;
+  }
+
+.tab-button {
+    font-size: 16px;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    background: #f2f2f2;
+    cursor: pointer;
+    margin-right: 1px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.tab-button.active {
+    background: #ddd;
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ドコモMAX（赤 → 薄い赤） */
+#max {
+  background: linear-gradient(to right, rgba(230, 0, 18, 0.5), rgba(230, 0, 18, 0.2));
+}
+
+/* ドコモポイ活MAX（金 → 透明） */
+#poikatsu-max {
+  background: linear-gradient(to right, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.2));
+}
+
+/* ドコモポイ活20（オレンジ → 透明） */
+#poikatsu-twenty {
+  background: linear-gradient(to right, rgba(247, 147, 30, 0.5), rgba(247, 147, 30, 0.2));
+}
+
+/* ドコモmini（青 → 透明） */
+#mini {
+  background: linear-gradient(to right, rgba(0, 114, 187, 0.5), rgba(0, 114, 187, 0.2));
+}
+
+.sub-poikatsu-max{
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    width: 300px;
+    height: 50px;
+    background: linear-gradient(to right, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.2));
+    border: none;
+}
+
+
+/*total-container*/
+#total-container{
+    margin-top: 10px;
+}

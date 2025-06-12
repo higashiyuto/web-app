@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>見積もりアプリ</title>
+</head>
+<body>
+    <div class="docomo-app">
+        <div class="estimate">
+            <div class="action-container">
+                <button id="reset-button" class="icon-button">
+                    <img src="../images/reset-icon.png" alt="更新"/>
+                </button>
+                <button id="save-button" class="icon-button">
+                    <img src="../images/save-icon.PNG" alt="保存"/>
+                </button>
+                <button id="open-button" class="icon-button">
+                    <img src="../images/open-icon.PNG" aly="開く"/>
+                </button>
+                <div id="customer-name"></div>
+            </div>
+
+            <div class="device-container">
+                <table id="device-content-table">
+                    <tr>
+                        <th>
+                            <select id="device-select" name="device" style="padding-left:5px; width:150px;"></select>
+                        </th>
+                        <td id="device-price" style="text-align:right; padding-right:5px; width:150px;">0 円</td>
+                    </tr>
+                </table>
+                <select id="contract-select" hidden>
+                    <option value="契約種別" disabled selected>契約種別</option>
+                    <option value="機種変更">機種変更</option>
+                    <option value="MNP">MNP</option>
+                    <option value="新規">新規</option>
+                </select>
+            </div>
+
+            <div id="discount-container" style="font-size: 12px; visibility: hidden;;">
+                <div>割引適用<input type="checkbox" id="discount-checkbox"></div>
+                <div id="discount-price"></div>
+            </div>
+
+            <div class="Installments-container">
+                <table class="kaedoki-intallments-table">
+                    <tr>
+                        <td class="kaedoki-name" colspan="2" style="width:30%;">カエドキプログラム</td>
+                        <td id="kaedoki-price" style="width:30%;">0 円 = </td>
+                        <td id="kaedoki-monthly-price" style="width:30%;">0 円 / 月</td>
+                        <td id="checkbox-table" style="width: 10%;"><input type="checkbox" class="price-checkbox" id="kaedoki-price-checkbox"></td>
+                    </tr>
+                </table>
+
+                <table class="installments-table">
+                    <tr>
+                        <td class="normal-name" style="width:15%;">通常分割</td>
+                        <td style="width:15%;"><select id="installments-num" value="">
+                            <option value="1">一括</option>
+                            <option value="12">12回</option>
+                            <option value="24">24回</option>
+                            <option value="36">36回</option>
+                        </select></td>
+                        <td id="normal-price" style="width:30%;">0 円 = </td>
+                        <td id="normal-monthly-price" style="width:30%;">0 円 / 月</td>
+                        <td id="checkbox-table" style="width:10%;"><input type="checkbox" class="price-checkbox" id="normal-price-checkbox"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="plan-container">
+                
+            </div>
+
+            <div id="total-container">合計 0円</div>
+        </div>
+
+        <iframe class="device-edit" src="../../device-edit/public/index.html"></iframe>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

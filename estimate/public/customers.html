@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>保存済み見積もり</title>
+</head>
+<body>
+  <h1>保存済み見積もり一覧</h1>
+  <ul id="customer-list"></ul>
+
+  <script type="module">
+    import { fetchCustomerNames, fetchEstimateByCustomerName, deleteEstimateByCustomerName } from './api.js';
+
+    async function loadCustomers() {
+      const list = document.getElementById('customer-list');
+      try {
+        const names = await fetchCustomerNames();
+        names.forEach(name => {
+          const li = document.createElement('li');
+          li.textContent = name;
+          li.style.cursor = 'pointer';
+          li.addEventListener('click', async () => {
+            const estimate = await fetchEstimateByCustomerName(name);
+            localStorage.setItem('loadedEstimate', JSON.stringify(estimate));
+            window.location.href = 'index.html'; // アプリへ遷移
+          });
+
+          li.addEventListener('contextmenu', async (event) => {
+            event.preventDefault();
+            if (confirm(`「${name}」の見積もりを削除しますか？`)) {
+              try {
+                await deleteEstimateByCustomerName(name);
+                li.remove();
+                alert('削除しました');
+              } catch (error) {
+                alert('削除に失敗しました');
+                console.error(error);
+              }
+            }
+          });
+
+          list.appendChild(li);
+        });
+      } catch (err) {
+        alert('取得に失敗しました');
+      }
+    }
+
+    loadCustomers();
+  </script>
+</body>
+</html>
