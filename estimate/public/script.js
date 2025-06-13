@@ -1,7 +1,7 @@
 import { fetchDevices } from './api.js';
 import { DeviceSelect, InstallmentsSelect, ContractTypeSelect} from './ui/select.js';
 import { DeviceCheckbox } from './ui/checkbox.js';
-import { SaveButton, LoadButton, ResetButton, PlanTabButton } from './ui/button.js';
+import { SaveButton, LoadButton, ResetButton, PlanTabButton, setupTotalContainer } from './ui/button.js';
 import { addObserver } from './state.js';
 import { calculateTotal } from './logic/calculateTotal.js';
 import { loadEstimateFromLocalStorage } from './load.js';
@@ -19,6 +19,7 @@ async function init() {
     LoadButton();
     ResetButton();
     PlanTabButton();
+    setupTotalContainer();
     await loadEstimateFromLocalStorage();
   }catch(error){
     console.log('初期化エラー:', error);

@@ -67,3 +67,41 @@ function createEstimateFromState(state, customerName) {
   return estimate;
 }
 
+export function setupTotalContainer() {
+  const totalContainer = document.getElementById('total-container');
+  if (!totalContainer) return;
+
+  // 例としてmain-plan-buttonとsub-plan-buttonsのボタンを監視
+  const buttons = document.querySelectorAll('.main-plan-button, .sub-plan-buttons button');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      // ボタンのdata-price属性から価格を取得（なければ0）
+      const price = Number(button.dataset.price) || 0;
+
+      // 現状の合計からpriceを加算 or 置き換えするロジック（例は置き換え）
+      // ※累積計算するなら別途変数管理が必要
+
+      // 合計表示を更新
+      totalContainer.textContent = `合計 ${price.toLocaleString()}円`;
+    });
+  });
+
+  // チェックボックスもあれば監視して更新できるように
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      // チェックボックスごとに価格などを取得して合計計算したい場合はここにロジックを
+      // とりあえず例としてチェックされていれば＋1000円、外せば0円
+
+      let addPrice = 0;
+      if (checkbox.checked) addPrice = 1000;
+
+      totalContainer.textContent = `合計 ${addPrice.toLocaleString()}円`;
+    });
+  });
+}
+
+
+
+
+
