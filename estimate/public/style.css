@@ -204,23 +204,66 @@ iframe{
     cursor: pointer;
 }
 
+/* 常時表示するプランの価格表示 */
+.plan-price {
+  font-size: 12px;
+  margin-top: 4px;
+  color: #333;
+}
+
+/* ホバー時だけ表示する価格ツールチップ */
+.main-plan-button[data-hover-price]:hover::after {
+  content: attr(data-hover-price);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 2px;
+  padding: 4px 8px;
+  font-size: 12px;
+  background: #fff5f5;
+  color: #e60012;
+  border: 1px solid #e60012;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
 .sub-plan-buttons {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    flex-direction: row; /* ← 縦並び → 横並びに変更 */
+    flex-direction:column; /* ← 縦並び → 横並びに変更 */
     z-index: 1;
 }
 
 .sub-plan-buttons button {
     padding: 8px 16px;
+    width: 180px;
     border: none;
     text-align: center;
     cursor: pointer;
     white-space: nowrap;
 }
 
+.sub-plan-buttons.poikatsu-max button{
+    background: linear-gradient(135deg, #f7eebe, #eccd92);
+}
+
+.sub-plan-buttons.poikatsu-max button:hover{
+    background: linear-gradient(135deg, #FFD700, #f5c46a);
+}
+
+.sub-plan-buttons.poikatsu-twenty button{
+    background-color: rgba(255, 140, 0, 0.15);
+}
+
+.sub-plan-buttons.poikatsu-twenty button:hover{
+    background-color: rgba(255, 140, 0, 0.35);
+}
 
 .sub-plan-buttons.max button{
     background:rgba(230, 0, 18, 0.2);
@@ -251,15 +294,7 @@ iframe{
 }
 
 .main-plan-button{
-    width: 210px;
-}
-
-.mini-button{
-    width: 105px;
-}
-
-.ahamo-button{
-    width: 105px;
+    width: 180px;
 }
 
 #selected-plan-area {

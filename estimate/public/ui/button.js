@@ -75,14 +75,14 @@ export function setupTotalContainer() {
   const buttons = document.querySelectorAll('.main-plan-button, .sub-plan-buttons button');
   buttons.forEach(button => {
     button.addEventListener('click', () => {
-      // ボタンのdata-price属性から価格を取得（なければ0）
-      const price = Number(button.dataset.price) || 0;
+        const planName = button.closest('.plan-button-group').querySelector('.main-plan-button').innerText.trim();
+        const subPlanName = button.innerText.trim();
+        const price = button.dataset.price;
 
-      // 現状の合計からpriceを加算 or 置き換えするロジック（例は置き換え）
-      // ※累積計算するなら別途変数管理が必要
-
-      // 合計表示を更新
-      totalContainer.textContent = `合計 ${price.toLocaleString()}円`;
+        const selectedText = `選択中：${planName} ${subPlanName}（${Number(price).toLocaleString()}円）`;
+        
+        const selectedPlanArea = document.getElementById('selected-plan-area');
+        selectedPlanArea.textContent = selectedText;
     });
   });
 
