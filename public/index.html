@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>端末編集アプリ</title>
+</head>
+<body>
+  <div class="container">
+    <h1>端末情報編集</h1>
+
+    <form id="deviceForm">
+      <!-- 端末選択 -->
+      <div class="form-group">
+        <label for="deviceSelect">端末名:</label>
+        <select id="deviceSelect" name="device" required>
+          <option value="" disabled selected>端末を選んでください</option>
+          <option value="new">新規端末</option>
+        </select>
+
+        <input type="text" id="deviceNameInput" name="newDeviceName" placeholder="新しい端末名を入力" style="display:none;">
+      </div>
+
+      <!-- 価格入力 -->
+      <div class="form-group">
+        <label for="priceInput">価格:</label>
+        <input type="text" id="priceInput" name="price" placeholder="例: 118000" required />円
+      </div>
+
+      <!-- カエドキ価格 -->
+      <div class="form-group">
+        <label for="kaedokiInput">カエドキ価格:</label>
+        <input type="text" id="kaedokiInput" name="kaedokiPrice" placeholder="例: 88000" required />
+        <span class="currency">円</span>
+      </div>
+
+      <!-- 補償 -->
+      <div class="form-group">
+        <label for="warrantyInput">補償:</label>
+        <input type="text" id="warrantyInput" name="warranty" placeholder="例: 880" required />
+        <span class="currency">円</span>
+      </div>
+
+      <!-- MNP割引 -->
+      <div class="form-group">
+        <label for="mnpDiscountInput">MNP割引:</label>
+        <input type="text" id="mnpDiscountInput" name="mnpDiscount" placeholder="例: 22000" required />
+        <span class="currency">円</span>
+      </div>
+
+      <!-- 新規割引 -->
+      <div class="form-group">
+        <label for="newDiscountInput">新規割引:</label>
+        <input type="text" id="newDiscountInput" name="newDiscount" placeholder="例: 11000" required />
+        <span class="currency">円</span>
+      </div>
+
+      <!-- 機種変更割引 -->
+      <div class="form-group">
+        <label for="changeDiscountInput">機種変更割引:</label>
+        <input type="text" id="changeDiscountInput" name="changeDiscount" placeholder="例: 5500" required />
+        <span class="currency">円</span>
+      </div>
+
+      <button type="button" id="edit">編集</button>
+      <button type="submit">保存する</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

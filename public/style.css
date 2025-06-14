@@ -1,0 +1,76 @@
+body{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.5;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+label {
+  width: 120px; /* ラベルの幅を統一 */
+  font-weight: bold;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+input {
+  text-align: right;
+  font-family: inherit;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.5;
+  width: 160px;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+
+select {
+  width: 200px;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.currency {
+  white-space: nowrap; /* 円が改行されないように */
+  font-size: 16px;
+  color: #333;
+}
+
+/* 全画面サイズ(例: 1200px以上)のスタイル */
+@media(min-width: 1200px){
+    .container{
+        width: 600px;
+        max-width: 90vw;
+        margin: 0 auto;
+    }
+
+    .form-group{
+        flex-direction: row;
+    }
+}
+
+/* 半分の画面サイズ(例: 600px~1199px)のスタイル */
+@media(min-width: 600px) and (max-width: 1199px){
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container{
+      width: 300px;
+    }
+
+    .form-group{
+        flex-direction: row;
+    }
+}
